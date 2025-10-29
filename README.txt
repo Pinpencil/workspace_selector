@@ -20,6 +20,20 @@
   3. 双击/按回车键打开，或点击"打开"按钮
 
 
+【如何创建工作区文件】
+  在 VS Code 中保存工作区到此目录：
+  
+  1. 打开 VS Code，添加需要的文件夹
+     菜单: 文件 → 将文件夹添加到工作区...
+  
+  2. 保存工作区配置文件
+     菜单: 文件 → 将工作区另存为...
+     保存位置: C:\Users\30434\Desktop\vs_workspaces\
+     文件名: 输入项目名称（如 my_project.code-workspace）
+  
+  3. 完成后，该工作区会自动出现在启动器列表中
+
+
 【主要功能】
   ✓ 智能排序：按最近访问时间或名称排序
   ✓ 实时搜索：快速过滤工作区列表
@@ -35,8 +49,21 @@
 
 
 【配置】
-  若需修改工作区文件夹路径，编辑 vs_run.py 第 11 行：
-  WORKSPACE_FOLDER = r'C:\Users\30434\Desktop\vs_workspaces'
+  ● 修改工作区文件夹路径
+    1. 用文本编辑器打开 vs_run.py
+    2. 找到第 11 行：
+       WORKSPACE_FOLDER = r'C:\Users\30434\Desktop\vs_workspaces'
+    3. 修改为你的实际路径，例如：
+       WORKSPACE_FOLDER = r'D:\MyWorkspaces'
+    4. 保存文件即可
+
+  ● 修改 VS Code 安装路径（如果自动检测失败）
+    1. 打开 vs_run.py
+    2. 找到第 50-53 行左右的 vscode_path 设置
+    3. 将路径改为你的 VS Code 安装位置，例如：
+       vscode_path = r'D:\Program Files\VSCode\Code.exe'
+    
+  ● 修改后需重新启动程序生效
 
 
 【依赖环境】
@@ -48,13 +75,21 @@
 【故障排查】
   ● 双击 vbs 无反应
     → 检查 Python 是否已安装并添加到 PATH
+    → 在命令行测试：python --version
     → 尝试直接运行：python vs_run.py
 
   ● 提示"未找到 VSCode"
-    → 手动修改 vs_run.py 第 50 行的 vscode_path
+    → 检查 VS Code 是否已安装
+    → 手动配置路径（见上方【配置】章节）
 
-  ● 删除访问历史
+  ● 列表为空/未显示工作区文件
+    → 确认 .code-workspace 文件在正确目录下
+    → 检查 WORKSPACE_FOLDER 路径配置是否正确
+    → 点击"刷新"按钮重新加载
+
+  ● 删除访问历史记录
     → 删除 .workspace_history.json 文件即可
+    → 或手动编辑该 JSON 文件移除特定条目
 
 
 【版本】v1.0
