@@ -1,0 +1,60 @@
+############################################
+# Git ignore for VS Code workspace launcher
+# 说明：按你的要求忽略所有工作区文件，不提交到仓库
+############################################
+
+# 操作系统杂项
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+# Python 构建与缓存
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg-info/
+.eggs/
+dist/
+build/
+pip-wheel-metadata/
+.pytest_cache/
+.mypy_cache/
+.pytype/
+.pyre/
+.coverage*
+coverage.xml
+htmlcov/
+*.log
+
+# 虚拟环境
+.venv/
+venv/
+env/
+ENV/
+*.env
+.env.local
+.env.*
+
+# 编辑器/IDE
+.vscode/
+.idea/
+.vs/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# 项目特定（不要提交工作区与历史）
+*.code-workspace
+group.code-workspace
+.workspace_history.json
+
+# 备份/临时
+*.bak
+*.tmp
+~$*
